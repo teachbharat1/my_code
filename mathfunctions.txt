@@ -1,0 +1,40 @@
+source /home/ec2-user/arith.txt
+
+function sub()
+{
+  NUM1=$1
+  NUM2=$2
+  SUB=`echo ${NUM1} - ${NUM2} | bc`
+  echo "${SUB}"
+}
+
+function mul()
+{
+  NUM1=$1
+  NUM2=$2
+  MUL=`echo ${NUM1} \* ${NUM2} | bc`
+  echo "${MUL}"
+}
+
+function gross()
+{
+  BASIC=$1
+  DA=`mul ${BASIC} 0.1`
+  NET=`add ${BASIC} ${DA}`
+  DED=200
+  GROSS=`sub ${NET} ${DED}`
+  echo "Your Inhand Salary is ${GROSS}"
+}
+
+function fact()
+{
+ NUM=$1
+ N=${NUM}
+ FACT=1
+ while [ ${NUM} -ge 1 ]
+ do
+   FACT=`expr ${FACT} \* ${NUM}`
+   NUM=`expr ${NUM} - 1`
+ done
+ echo "The Factorial of ${N} is ${FACT}" 
+}
