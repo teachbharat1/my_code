@@ -38,3 +38,8 @@ function fact()
  done
  echo "The Factorial of ${N} is ${FACT}" 
 }
+
+function pallindraome()
+{
+  echo "Its a Palindrome Program"
+}
